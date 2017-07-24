@@ -38,5 +38,6 @@ http://practice.geeksforgeeks.org/problems/check-string/0
 Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie same. 
 
 
---- Implicits
+---
+### Implicits
 
