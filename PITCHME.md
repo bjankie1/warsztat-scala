@@ -1,3 +1,7 @@
+Wprowadzenie do języka Scala
+Bartosz Jankiewicz | Stacja IT
+
+http://stacja.it/warsztaty/2017-07-29-scala.html
 ---
 ### Aplikacja w Scala
 
@@ -25,10 +29,12 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 
 ### Case classes
 
-----
+---
 ### Exercise
 http://practice.geeksforgeeks.org/problems/check-string/0
 
 Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie same. 
 
+
+--- Implicits
 
