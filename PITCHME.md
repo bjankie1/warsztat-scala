@@ -6,8 +6,9 @@ object HelloApp extends App {
 
 }
 ```
++++
 
-To co się znajduje między klamrami jest już konstruktorem.
+Kod, który znajduje się w ciele klasy jest konstruktorem.
 
 Spróbujmy użyć obiektu `scala.io.StdIn` do czytania czegoś ze standardowego wejścia:
 
@@ -18,7 +19,8 @@ StdIn.readLine("Napisz coś: ")
 Potem wydrukujmy odpowiedź i spytajmy się ponownie. Wychodzimy z programu, kiedy
 na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 
-Ciekaw jesteś pewnie skąd się bierze funkcja `println`?
++++
+**Ciekaw jesteś pewnie skąd się bierze funkcja `println`?**
 ---
 
 ### Case classes
@@ -27,4 +29,6 @@ Ciekaw jesteś pewnie skąd się bierze funkcja `println`?
 ### Exercise
 http://practice.geeksforgeeks.org/problems/check-string/0
 
-Given a string S , write a program to check if all the characters of the string are same or not.
+Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie same. 
+
+
