@@ -85,20 +85,24 @@ Oraz w ramach biblioteki Cats:
 +++
 ### Przećwiczmy to
 
-Napisz następujące funkcje:
-
++++
 ```scala
 
 /**
  * Skonwertuj tekst na liczbę.
  */
 def strToInt(s: String): Try[Int] = ???
+```
 
++++
+```scala
 /**
  * Znajdź pierwszy tekst w tablicy będący liczbą.
  */
 def firstNumber(a: Array[String]): Option[Int] = ???
-
+```
++++
+```scala
 case class User(name: String, age: Int)
 
 /**
