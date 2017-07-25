@@ -118,6 +118,9 @@ def mul = multiply(_, _)
 - Nie jest dokładnie tym co myślisz!
 
 +++
+### Metoda `apply`
+
++++
 ### Aliasy
 ```scala
 type IntList = List[Int]
@@ -151,21 +154,40 @@ Case class to zwykła klasa z dużą ilością cukru składniowego:
 - extractors
 - import
 
-+++
-### Pattern matching
-+++
+---
 ### Ekstraktory
 
-
+---
+### Krotki
+```scala
+val user = ("Marek", 25)
+val (_, age) = user
+```
 
 ---
-### Generics
+### Pattern matching
+
+```scala
+val x = Some("abc")
+
+x match {
+  case Some("def") => println("Znalazlem def")
+  case Some(value) => println("Znalazlem " + value)
+  case None => println("Nic nie znalazłem")
+}
+```
+---
+### For comprehension
+
+---
+### Typy generyczne
 
 ```scala
 class Foo[+A] // A covariant class
 class Bar[-A] // A contravariant class
 class Baz[A]  // An invariant class
 ```
+
 +++
 ### Example
 
@@ -184,7 +206,7 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 
 
 ---
-### Error handling
+### Obsługa błędów
 
 +++
 ### Zacznijmy od unikania wyjątków
@@ -233,6 +255,9 @@ def validateInput(input: String): Either[String, User]
 
 ---
 ### Implicits
+
+---
+### Programowanie asynchroniczne
 
 ---
 ### Co dalej?
