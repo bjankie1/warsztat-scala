@@ -31,6 +31,27 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 
 ### Case classes
 
+Coś, czego brakuje w Java.
+</br>
+Case class to zwykła klasa z dużą ilością cukru składniowego:
+- hashCode na wszystkich polach
+- toString
+- equals
+- jest serializowalna
+- posiada extractor oraz funkcję apply
+- posiada operator kopiowania ze zmianą pola
+
+---
+### Generics
+
+```scala
+class Foo[+A] // A covariant class
+class Bar[-A] // A contravariant class
+class Baz[A]  // An invariant class
+```
++++
+### Example
+
 ---
 ### Exercise
 http://practice.geeksforgeeks.org/problems/check-string/0
@@ -41,3 +62,52 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 ---
 ### Implicits
 
+---
+### Collections
+
+- List, Map, Set, Seq
+- mutable or immutable
+
+---
+### Error handling
+
++++
+### Zacznijmy od unikania wyjątków
+
+Pomogą nam w tym:
+- Option[+T]
+- Try[+T]
+- Either[+A, +B]
+
+Oraz w ramach biblioteki Cats:
+- Validated[+E, +A] 
+
++++
+### Przećwiczmy to
+
+Napisz następujące funkcje:
+
+```scala
+
+/**
+ * Skonwertuj tekst na liczbę.
+ */
+def strToInt(s: String): Try[Int] = ???
+
+/**
+ * Znajdź pierwszy tekst w tablicy będący liczbą.
+ */
+def firstNumber(a: Array[String]): Option[Int] = ???
+
+case class User(name: String, age: Int)
+
+/**
+ * Sparsuj wartość argumentu `input` do klasy User. Wartość w pola odpowiada wzorcowi:
+ * `name:age`
+ * gdzie age jest liczbą całkowitą.
+ * Jeśli wzorzec będzie inny odpowiedni komunikat powinien się znaleźć w rezultacie
+ * tupu Left
+ */
+def validateInput(input: String): Either[String, User]
+
+```

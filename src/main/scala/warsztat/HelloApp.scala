@@ -4,6 +4,7 @@ import scala.io.StdIn
 
 /**
   * Prosta apka odpowiadająca jak papuga.
+  *
   */
 object HelloApp extends App {
 
