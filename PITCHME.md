@@ -106,11 +106,12 @@ def firstNumber(a: Array[String]): Option[Int] = ???
 case class User(name: String, age: Int)
 
 /**
- * Sparsuj wartość argumentu `input` do klasy User. Wartość w pola odpowiada wzorcowi:
- * `name:age`
+ * Sparsuj wartość argumentu `input` do klasy User.
+ * Wartość w pola odpowiada wzorcowi:
+ * *name:age*
  * gdzie age jest liczbą całkowitą.
- * Jeśli wzorzec będzie inny odpowiedni komunikat powinien się znaleźć w rezultacie
- * tupu Left
+ * Jeśli wzorzec będzie inny odpowiedni komunikat
+ * powinien się znaleźć w rezultacie typu Left
  */
 def validateInput(input: String): Either[String, User]
 
