@@ -233,8 +233,8 @@ Pomogą nam w tym:
 - Try[+T]        |
 - Either[+A, +B] |
 
-Oraz w ramach biblioteki Cats:
-- Validated[+E, +A] 
+Oraz w ramach biblioteki Cats: |
+- Validated[+E, +A]            |
 
 +++
 ### Przećwiczmy to
