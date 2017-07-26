@@ -232,7 +232,7 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 - Option[+T]     |
 - Try[+T]        |
 - Either[+A, +B] |
-**Oraz w ramach biblioteki Cats:** |
+**<br/>Oraz w ramach biblioteki Cats:** |
 - Validated[+E, +A]            |
 
 +++
