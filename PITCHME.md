@@ -35,9 +35,10 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 ### Podstawy składni
 +++
 ### Klasy i obiekty
-- Class
-- Object
-- Trait
+- class
+- trait
+- object
+- package object
 +++
 ### Zmienne i stałe (etykiety)
 #### val
@@ -130,6 +131,21 @@ type UserId = Long
 type Converter = String => UserId
 ```
 +++
+### Pakiety
+```scala
+package myapp
+package services
+```
++++
+### Import
+```scala
+import com.my.app._
+import com.my.app.{User, UserService}
+import com.my.app.{UserService => US}
+
+```
+
++++
 ### Currying
 
 +++
@@ -152,19 +168,20 @@ Case class to zwykła klasa z dużą ilością cukru składniowego:
 ### Konstrukcje
 - pattern matching
 - extractors
-- import
+- krotki
+- for comprehension
 
----
++++
 ### Ekstraktory
 
----
++++
 ### Krotki
 ```scala
 val user = ("Marek", 25)
 val (_, age) = user
 ```
 
----
++++
 ### Pattern matching
 
 ```scala
@@ -176,7 +193,7 @@ x match {
   case None => println("Nic nie znalazłem")
 }
 ```
----
++++
 ### For comprehension
 
 ---
@@ -212,9 +229,9 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 ### Zacznijmy od unikania wyjątków
 
 Pomogą nam w tym:
-- Option[+T]
-- Try[+T]
-- Either[+A, +B]
+- Option[+T]     |
+- Try[+T]        |
+- Either[+A, +B] |
 
 Oraz w ramach biblioteki Cats:
 - Validated[+E, +A] 
@@ -252,6 +269,9 @@ case class User(name: String, age: Int)
 def validateInput(input: String): Either[String, User]
 
 ```
+---
+### Jak to przetestować?
+
 
 ---
 ### Implicits
@@ -265,3 +285,4 @@ def validateInput(input: String): Either[String, User]
 - https://www.coursera.org/specializations/scala
 - https://twitter.github.io/scala_school/
 - https://www.manning.com/books/functional-programming-in-scala
+- http://www.scalatest.org/user_guide
