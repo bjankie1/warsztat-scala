@@ -228,12 +228,11 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 +++
 ### Zacznijmy od unikania wyjątków
 
-Pomogą nam w tym:
+**Pomogą nam w tym:**
 - Option[+T]     |
 - Try[+T]        |
 - Either[+A, +B] |
-
-Oraz w ramach biblioteki Cats: |
+**Oraz w ramach biblioteki Cats:** |
 - Validated[+E, +A]            |
 
 +++
