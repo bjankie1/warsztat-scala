@@ -296,7 +296,32 @@ x match {
   case None => println("Nic nie znalazłem")
 }
 ```
-+++
+
+---
+### Magiczny znak podkreślenia
+Jako wskaźnik do argumentu
+```scala
+List(1, 2, 3).map(_ * 2)
+```
+Importy
+```scala
+import com.myapp._
+```
+Wildcard w pattern matching
+```scala
+x match {
+  case User(_, 13) => ???
+}
+```
+Konwersja funkcji na metody
+```scala
+def toFunction(callByName: => Int): () => Int = callByName _
+```
+Ignorowane typy:
+```scala
+def foo(l: List[Option[_]]) = ???
+```
+---
 ### Ćwiczenie
 
 Napisz metodę, która zamienia czas z godzin i minut na tekst.
@@ -320,9 +345,6 @@ class Foo[+A] // A covariant class
 class Bar[-A] // A contravariant class
 class Baz[A]  // An invariant class
 ```
-
-+++
-### Przykład
 
 ---
 ### Kolekcje
