@@ -121,6 +121,8 @@ def mul = multiply(_, _)
 +++
 ### Ćwiczenie
 
+Napisz metodę podnoszącą liczbę do potęgi. 
+
 ---
 ### Typ Unit
 - Zapisywany także jako `()`
@@ -128,10 +130,6 @@ def mul = multiply(_, _)
 - `Unit` jest jednak obiektem dziedziczącym po `AnyVal`
 +++
 ### Bloki kodu
-
-+++
-### return
-- Nie jest dokładnie tym co myślisz!
 
 +++
 ### Metoda `apply`
@@ -216,7 +214,7 @@ Dzięki temu możemy:
 def addTo5 = add(5)
 ```
 +++
-### Ćwieczenie
+### Ćwiczenie
 
 Napisz funkcję, która sprawdza czy ktoś jest starszy niż określony parametr
 ```scala
@@ -381,6 +379,14 @@ for( item <- items) yield {
 - stream
 - iterator
 - withFilter
+---
+### Słowo return
+- Nie jest dokładnie tym co myślisz!
+
+Sprawdź na własnej skórze - użyj map i sum do zaimplementowania, ale w map zwróc wartość używając `return`
+```scala
+def multiplyAndSum(multiplier: Int, input: List[Int]): Int = ???
+```
 
 ---
 ### Obsługa błędów
