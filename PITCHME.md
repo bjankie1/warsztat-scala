@@ -128,11 +128,39 @@ Napisz metodę podnoszącą liczbę do potęgi.
 - Zapisywany także jako `()`
 - Funkcja zwracająca `Unit` jest analogią do `void` w Java
 - `Unit` jest jednak obiektem dziedziczącym po `AnyVal`
-+++
+---
 ### Bloki kodu
 
+Ostatnie wyrażenie w bloku jest jednocześnie wynikiem.
+```scala
+{
+  val x = 1
+  x * 2
+}
+```
++++
+### Wszystko zwraca wartość
+Czasami to jest Unit, ale to też obiekt :)
+```scala
+val result = if(age >= 18) "pełnoletni" else "niepełnoletni"
+```
 +++
 ### Metoda `apply`
+Metoda apply jest 'ukrywana' przez kompilator, ale może być wywołana jawnie.
+Powzwala na bardziej zwięzłe pisanie kodu lub pewnego rodzaju przeciążanie konstruktorów.
+Jest często używana do fabryk obiektów.
+
+```scala
+class User(name: String) {
+
+}
+
+object User {
+    def apply(name: String): User = new User(name)
+}
+
+val tomek = User("tomek") 
+```
 
 +++
 ### Aliasy
