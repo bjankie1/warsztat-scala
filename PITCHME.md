@@ -107,6 +107,9 @@ def mul = multiply(_, _)
 "abc" endsWith "c"
 ```
 +++
+### Ćwiczenie
+
+---
 ### Typ Unit
 - Zapisywany także jako `()`
 - Funkcja zwracająca `Unit` jest analogią do `void` w Java
@@ -144,9 +147,56 @@ import com.my.app.{User, UserService}
 import com.my.app.{UserService => US}
 
 ```
-
+---
+### Wyrażenia warunkowe
+```scala
+def canDrink(age: Int) =
+    if(age >= 18) {
+      true
+    } else {
+      true
+    }
+```
 +++
+### Ćwiczenie
+
+Napisz metodę konwertującą godzinę z formatu 12-godzinnego do 24 godzinnego.
+
+```scala
+def convertHour(hour: Int): Int = ???
+```
++++
+### Ćwiczenie
+
+Napisz metodę liczącą silnię.
+
+---
 ### Currying
+
+Weżmy pod uwagę prostą metodę:
+```scala
+def add(a: Int, b: Int) = a + b
+```
+
+Możnazapisać także tak:
+```scala
+def add(a: Int)(b: Int) = a + b
+```
+
+Dzięki temu możemy:
+```scala
+def addTo5 = add(5)
+```
++++
+### Ćwieczenie
+
+Napisz funkcję, która sprawdza czy ktoś jest starszy niż określony parametr
+```scala
+def isOlderThan(limit: Int, age: Int): Boolean = ???
+```
+
+Przekształć tą funkcję tak, aby można było jej uzyć do stworzenia funkcji
+odpowiadającej na pytanie czy ktoś jest pełnoletni.
 
 +++
 ### Domknięcia
@@ -170,7 +220,6 @@ Case class to zwykła klasa z dużą ilością cukru składniowego:
 - extractors
 - krotki
 - for comprehension
-
 +++
 ### Ekstraktory
 
@@ -194,7 +243,24 @@ x match {
 }
 ```
 +++
-### For comprehension
+### Ćwiczenie
+
+Napisz metodę, która zamienia czas z godzin i minut na tekst.
+Przykładowo: 5, 10 -> "piąta dziesięc"
+Można to osiągnąć na wiele sposobów, ale poćwicz pattern matching :)
+
+```scala
+def tellTime(hour: Int, minute: Int): String = ???
+```
++++
+### Ćwiczenie
+
+Jakie zmiany zaproponujesz do metody wcześniej żeby obsłużyć niepoprawną wartość czasu?
+
++++
+### Pętle
+
+
 
 ---
 ### Typy generyczne
@@ -206,17 +272,10 @@ class Baz[A]  // An invariant class
 ```
 
 +++
-### Example
+### Przykład
 
 ---
-### Exercise
-http://practice.geeksforgeeks.org/problems/check-string/0
-
-Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie same. 
-
-
----
-### Collections
+### Kolekcje
 
 - List, Map, Set, Seq
 - mutable or immutable
@@ -229,11 +288,12 @@ Napisz program, który sprawdzi, czy wszystkie znaki w danym ciągu są takie sa
 ### Zacznijmy od unikania wyjątków
 
 **Pomogą nam w tym:**
-- Option[+T]     |
-- Try[+T]        |
-- Either[+A, +B] |
-**<br/>Oraz w ramach biblioteki Cats:** |
-- Validated[+E, +A]            |
+- Option[+T]
+- Try[+T]
+- Either[+A, +B]
+
+**Oraz w ramach biblioteki Cats:**
+- Validated[+E, +A]
 
 +++
 ### Przećwiczmy to
@@ -268,9 +328,6 @@ case class User(name: String, age: Int)
 def validateInput(input: String): Either[String, User]
 
 ```
----
-### Jak to przetestować?
-
 
 ---
 ### Implicits
@@ -281,7 +338,11 @@ def validateInput(input: String): Either[String, User]
 ---
 ### Co dalej?
 
+#### Ćwiczenia
 - https://www.coursera.org/specializations/scala
+- http://www.scalakoans.org
 - https://twitter.github.io/scala_school/
+
+#### Do poczytania
 - https://www.manning.com/books/functional-programming-in-scala
 - http://www.scalatest.org/user_guide
