@@ -7,6 +7,14 @@ http://stacja.it/warsztaty/2017-07-29-scala.html
 
 ---
 ### Podstawy SBT
+```bash
+sbt clean compile
+
+sbt test
+
+sbt console
+
+```
 
 ---
 ### Aplikacja w Scala
@@ -31,6 +39,10 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 
 +++
 **Ciekaw jesteś pewnie skąd się bierze funkcja `println`?**
+
++++
+Uruchom aplikację za pomocą SBT
+
 ---
 ### Podstawy składni
 +++
@@ -280,6 +292,74 @@ class Baz[A]  // An invariant class
 - List, Map, Set, Seq
 - mutable or immutable
 
+Kolekcje niemutowalne są zalecane, co pomaga uniknąć wielu niespodzianek.
+Niestety W pewnych sytuacjach lepsze okazują się kolekcje mutowalne.
+Przykładem takim może być optymalizacja wydajności.
++++
+### Tworzenie kolekcji
+```scala
+val list = List(1, 2, 3)
+val set = Set("a", "b", "c")
+val map = Map(1 -> "a", 2 -> "b")
+val arr = Array(1, 2, 3)
+```
++++
+### Aktualizowanie kolekcji
+Pojedyncze elementy
+```scala
+list :+ 4
+set + "d"
+map + (3 -> "c")
+arr(3) = 4
+```
+Sumowanie dwóch kolekcji:
+```scala
+List(1, 2, 3) ++ List(4, 5, 6)
+```
+
++++
+### Operacje na kolekcjach
+- map
+- filter
+- flatMap
+- head, drop, take
+- fold, foldLeft, foldRight
+- zip, zipWithIndex
+- reverse
+- collect
+
+---
+### Ćwiczenia
++++
+Znajdź największy element w tablicy.
+
++++
+Sprawdź czy dany tekst jest palindromem
+
+```scala
+def isPalindrome(s: String): Boolean
+```
+
++++
+Napisz funkcję, która zwróci wspólne dzielniki dla dwóch liczb
+
+```scala
+def commonDivisors(a: Int, b: Int): Seq[Int] = ???
+```
+
++++
+Policz mediane
+
+```scala
+def mean(input: Seq[Int]): Int = ???
+```
+
++++
+### Leniwe operacje na kolekcjach
+- view
+- stream
+- iterator
+- withFilter
 
 ---
 ### Obsługa błędów
@@ -298,7 +378,6 @@ class Baz[A]  // An invariant class
 +++
 ### Przećwiczmy to
 
-+++
 ```scala
 
 /**
@@ -331,9 +410,11 @@ def validateInput(input: String): Either[String, User]
 
 ---
 ### Implicits
-
+- implicit classes
+- implicit attributes
+- implicit values
 ---
-### Programowanie asynchroniczne
+### Type classes
 
 ---
 ### Co dalej?
