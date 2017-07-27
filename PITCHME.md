@@ -181,7 +181,23 @@ def convertHour(hour: Int): Int = ???
 ### Ćwiczenie
 
 Napisz metodę liczącą silnię.
+---
+### Operacje na tekstach
 
+#### string interpolation
+```scala
+val x = 5
+val message = s"x = $x"
+```
+
+#### Znaki specjalne
+```scala
+val message = "name is \"Bartosz\" "
+```
+Można zapisać czytelniej
+```scala
+val message = """name is "Bartosz" """
+```
 ---
 ### Currying
 
@@ -269,10 +285,6 @@ def tellTime(hour: Int, minute: Int): String = ???
 
 Jakie zmiany zaproponujesz do metody wcześniej żeby obsłużyć niepoprawną wartość czasu?
 
-+++
-### Pętle
-
-
 
 ---
 ### Typy generyczne
@@ -353,6 +365,15 @@ Policz mediane
 ```scala
 def mean(input: Seq[Int]): Int = ???
 ```
++++
+### For comprehension
+```scala
+val items = 1 to 4
+for( item <- items) yield {
+  item * 2
+}
+```
+
 
 +++
 ### Leniwe operacje na kolekcjach
@@ -415,6 +436,19 @@ def validateInput(input: String): Either[String, User]
 - implicit values
 ---
 ### Type classes
+
+---
+### Akka HTTP
+```scala
+    implicit val materializer = ActorMaterializer()
+
+    val bindingFuture: Future[Http.ServerBinding] = Http().bindAndHandle(routes, host, port)
+    bindingFuture.onFailure {
+      case ex: Exception =>
+        logger.error(s"Failed to bind to $host, $port", ex)
+    }
+
+```
 
 ---
 ### Co dalej?
