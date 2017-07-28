@@ -1,0 +1,6 @@
+package warsztat
+
+object Functions {
+
+
+}
