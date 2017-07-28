@@ -254,6 +254,19 @@ odpowiadającej na pytanie czy ktoś jest pełnoletni.
 
 +++
 ### Domknięcia
+Domknięcia pozwalają na przechwycenie kontekstu wywołania funkcji.
+
+```scala
+def multiplierBuilder(factor: Int): Int => Int = {
+
+    def multiply(value: Int): Int = value * factor
+    
+    multiply
+}
+```
++++
+### Ćwiczenie
+Napisz metodę podnoszącą liczbę do potęgi z użyciem domknięć.
 
 ---
 ### Case classes
@@ -274,8 +287,6 @@ Case class to zwykła klasa z dużą ilością cukru składniowego:
 - extractors
 - krotki
 - for comprehension
-+++
-### Ekstraktory
 
 +++
 ### Krotki
@@ -285,6 +296,21 @@ val (_, age) = user
 ```
 
 +++
+### Ekstraktory
+- Ekstraktory pozwalają na dekompozycję struktury do postaći krotki.
+- Są powszechnie używane przez cukier syntaktyczny Scala
+
+```scala
+def unapply(arg: String): Option[T] 
+```
+Przykładowo może być użyty do rozbicia adresu email na użytkownika i domenę.
+```scala
+object email {
+  def unapply(arg: String): Option[(String, String)] = ???
+}
+```
+
+---
 ### Pattern matching
 
 ```scala
@@ -492,6 +518,28 @@ def validateInput(input: String): Either[String, User]
 - implicit values
 ---
 ### Type classes
+Najlepiej wyjaśnić to na przykładzie :)
+
+---
+### Monady
+- Pozwalają na układanie obliczeń w sekwencje
+- Już zdążyłeś ich użyć: Option i Try to monady
+- Bardzo pomocną monadą w Scali jest Future
+- For comprehension pomaga w składaniu monad
++++
+### Ćwiczenie
+Napiszmy prosty serwis, który przyjmuje 3 argumenty:
+- wiek, email i imię
+- składa z nich obiekt użytkownika
+- ale najpierw waliduje wiek i email
+- funkcje walidujące imię, wiek i email zwrócą Option
+- złóż wyniki tych funkcji i utwórz obiekt User
+```scala
+case class User(name: String, email: String, age: Int)
+def validateAge(input: String): Option[Int]
+def validateEmail(input: String): Option[String]
+def validateName(input: String): Option[String]
+```
 
 ---
 ### Akka HTTP
@@ -514,6 +562,8 @@ def validateInput(input: String): Either[String, User]
 - http://www.scalakoans.org
 - https://twitter.github.io/scala_school/
 
+
 #### Do poczytania
 - https://www.manning.com/books/functional-programming-in-scala
 - http://www.scalatest.org/user_guide
+- http://danielwestheide.com/scala/neophytes.html
