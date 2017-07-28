@@ -560,7 +560,8 @@ Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
 - przyjmuje prośbę o rezerwację stołu z podaniem nazwiska i godziny
 - odmawia rezerwacji, jeśli na tą godzinę stół jest zajęty
 - wyświetla grafik
-
++++
+- Dla uproszczenia grafik trzymany jest w pamięci w wybranej kolekcji.
 ---
 ### Co dalej?
 
