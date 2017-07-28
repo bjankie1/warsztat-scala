@@ -553,6 +553,13 @@ def validateName(input: String): Option[String]
     }
 
 ```
++++
+### Ćwiczenie
+
+Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
+- przyjmuje prośbę o rezerwację stołu z podaniem nazwiska i godziny
+- odmawia rezerwacji, jeśli na tą godzinę stół jest zajęty
+- wyświetla grafik
 
 ---
 ### Co dalej?
