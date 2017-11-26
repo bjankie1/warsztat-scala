@@ -42,14 +42,14 @@ object HelloApp {
 }
 ```
 ---
+Można to zapisać także tak dzięki funkchjonalności `scala.DelayedInit`
+
 ```scala
 object HelloApp extends App {
-
+  println("Hello world!")
 }
 ```
 ---
-
-
 Kod, który znajduje się w ciele klasy jest konstruktorem.
 
 Spróbujmy użyć obiektu `scala.io.StdIn` do czytania czegoś ze standardowego wejścia:
@@ -68,9 +68,11 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 Uruchom aplikację za pomocą SBT
 
 ---
-### Podstawy składni
+# Podstawy składni Scala
 ---
-### Zmienne i stałe (etykiety)
+# Podstawy składni Scala
+## Zmienne i stałe (etykiety)
+---
 ### val
 Słowo kluczowe `val` służy do oznaczania etykiet, czyli inaczej stałych.
 Gdyby nie fakt, że stałe można dziedziczyć ich odpowiednikiem byłyby słowa kluczowe `final static`.
@@ -100,97 +102,10 @@ x = x * 2
 x: Int = 10
 ```
 ---
-### Operatory
+# Podstawy składni Scala
+## Operatory
 - Ponieważ funkcje mogą używać dowolnych znaków operatory w Scala są funkcjami
 - Każda funkcja jednoargumentowa może zapisana w składni infix
-```scala
-val x = 2 + 5
-val y = 2.+(5)
-```
----
-### Pierwszeństwo operatorów
-```
-(litery)
-|
-^
-&
-= !
-< >
-:
-+ -
-* / %
-(inne znaki specjalne)
-```
-
----
-
-## Klasy i obiekty
-- class
-- trait
-- object
-- Companion object
-- package object
-
-### class
-
-### trait
-
-### object
-
-### companion object
-
-### package object
-
-### Modyfikator dostępu
-
-|          | Class |Companion | Subclass | Package | World |
-|----------|-------|----------|----------|---------|-------|
-| brak     | Y     | Y        | Y        | Y       | Y     |
-| protected| Y     | Y        | Y        | N       | N     |
-| private  | Y     | Y        | N        | N       | N     |
-
-Podstawowe różnice w stosunku do Java:
-
-* Nie ma słowa kluczowego `public`, zaś domyślny dostęp odpowiada dostępowi publicznemu z Java.
-* Elementy `protected` nie są dostępne  z innych klas w tym samym pakiecie.
-* Nie ma odpowiednika domyślnego kwalifikatora z Java (friendly access).
-* Słowo kluczowe `private` są dostępne nie tylko w klasie, ale takzę w tzw. companion object i na odwrót.
-* Można oznaczyć klasę jako `private` lub `protected`
-
-Przykład:
-
-```scala
-class Foo {
-
-  private val name: String
-
-}
-```
----
-### Zmienne i stałe (etykiety)
-#### val
-```scala
-val x = 5
-x: Int = 5
-
-x = x * 2
-:12: error: reassignment to val
-x = x * 2
-  ^
-```
-
-#### var
-```scala
-var x = 5
-x: Int = 5
-
-x = x * 2
-x: Int = 10
-```
----
-### Operatory
-- Operatory są funkcjami
-- Każda funkcja jednoargumentowa może być użyta w składni infix
 ```scala
 val x = 2 + 5
 val y = 2.+(5)
@@ -478,6 +393,50 @@ def tellTime(hour: Int, minute: Int): String = ???
 Jakie zmiany zaproponujesz do metody wcześniej żeby obsłużyć niepoprawną wartość czasu?
 
 
+---
+# Obiektowość w Scala
+## Klasy i obiekty
+- class
+- trait
+- object
+- Companion object
+- package object
+
+### class
+
+### trait
+
+### object
+
+### companion object
+
+### package object
+
+### Modyfikator dostępu
+
+|          | Class |Companion | Subclass | Package | World |
+|----------|-------|----------|----------|---------|-------|
+| brak     | Y     | Y        | Y        | Y       | Y     |
+| protected| Y     | Y        | Y        | N       | N     |
+| private  | Y     | Y        | N        | N       | N     |
+
+Podstawowe różnice w stosunku do Java:
+
+* Nie ma słowa kluczowego `public`, zaś domyślny dostęp odpowiada dostępowi publicznemu z Java.
+* Elementy `protected` nie są dostępne  z innych klas w tym samym pakiecie.
+* Nie ma odpowiednika domyślnego kwalifikatora z Java (friendly access).
+* Słowo kluczowe `private` są dostępne nie tylko w klasie, ale takzę w tzw. companion object i na odwrót.
+* Można oznaczyć klasę jako `private` lub `protected`
+---
+Przykład:
+
+```scala
+class Foo {
+
+  private val name: String
+
+}
+```
 ---
 ### Typy generyczne
 
