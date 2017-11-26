@@ -7,12 +7,12 @@ bartosz.jankiewicz@gmail.com
 
 ---
 
-# Poziomy zaawansowania w języku Scala
+### Poziomy zaawansowania w języku Scala
 ![Levels of knowledge](http://sciabarra.com/static/media/uploads/blog/17a16.png)
 
 Źródło: http://sciabarra.com/blog/scala-levels-of-knowledge/
 
-# Ammonite
+### Ammonite
 
 ```bash
 sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
@@ -32,12 +32,24 @@ sbt console
 ---
 ### Aplikacja w Scala
 
+---
+```scala
+object HelloApp {
+
+  def main(args: Array[String]) {
+    println("Hello world!")
+  }
+
+}
+```
+---
 ```scala
 object HelloApp extends App {
 
 }
 ```
-+++
+---
+
 
 Kod, który znajduje się w ciele klasy jest konstruktorem.
 
@@ -50,21 +62,112 @@ StdIn.readLine("Napisz coś: ")
 Potem wydrukujmy odpowiedź i spytajmy się ponownie. Wychodzimy z programu, kiedy
 na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 
-+++
+---
 **Ciekaw jesteś pewnie skąd się bierze funkcja `println`?**
 
-+++
+---
 Uruchom aplikację za pomocą SBT
 
 ---
 ### Podstawy składni
-+++
-### Klasy i obiekty
+---
+### Zmienne i stałe (etykiety)
+### val
+Słowo kluczowe `val` służy do oznaczania etykiet, czyli inaczej stałych.
+Gdyby nie fakt, że stałe można dziedziczyć ich odpowiednikiem byłyby słowa kluczowe `final static`.
+
+Etykiety są rekomendowanym sposobem definiowania wartości. W wielu językach funkcyjnych nie występuje inny sposób operowania na wartościach niż etykiety (Haskel, Erlang).
+
+Przychodząc ze świata języków imperatywnych trudno wyobrazić sobie brak mutowalności, jednak po pewnym czasie ten sposób pisania kodu przychodzi nie tylko naturalnie, ale wręcz wypiera istnienie zmiennych.
+---
+
+```scala
+val x = 5
+x: Int = 5
+
+x = x * 2
+:12: error: reassignment to val
+x = x * 2
+  ^
+```
+---
+### var
+
+```scala
+var x = 5
+x: Int = 5
+
+x = x * 2
+x: Int = 10
+```
+---
+### Operatory
+- Ponieważ funkcje mogą używać dowolnych znaków operatory w Scala są funkcjami
+- Każda funkcja jednoargumentowa może zapisana w składni infix
+```scala
+val x = 2 + 5
+val y = 2.+(5)
+```
+---
+### Pierwszeństwo operatorów
+```
+(litery)
+|
+^
+&
+= !
+< >
+:
++ -
+* / %
+(inne znaki specjalne)
+```
+
+---
+
+## Klasy i obiekty
 - class
 - trait
 - object
+- Companion object
 - package object
-+++
+
+### class
+
+### trait
+
+### object
+
+### companion object
+
+### package object
+
+### Modyfikator dostępu
+
+|          | Class |Companion | Subclass | Package | World |
+|----------|-------|----------|----------|---------|-------|
+| brak     | Y     | Y        | Y        | Y       | Y     |
+| protected| Y     | Y        | Y        | N       | N     |
+| private  | Y     | Y        | N        | N       | N     |
+
+Podstawowe różnice w stosunku do Java:
+
+* Nie ma słowa kluczowego `public`, zaś domyślny dostęp odpowiada dostępowi publicznemu z Java.
+* Elementy `protected` nie są dostępne  z innych klas w tym samym pakiecie.
+* Nie ma odpowiednika domyślnego kwalifikatora z Java (friendly access).
+* Słowo kluczowe `private` są dostępne nie tylko w klasie, ale takzę w tzw. companion object i na odwrót.
+* Można oznaczyć klasę jako `private` lub `protected`
+
+Przykład:
+
+```scala
+class Foo {
+
+  private val name: String
+
+}
+```
+---
 ### Zmienne i stałe (etykiety)
 #### val
 ```scala
@@ -85,7 +188,7 @@ x: Int = 5
 x = x * 2
 x: Int = 10
 ```
-+++
+---
 ### Operatory
 - Operatory są funkcjami
 - Każda funkcja jednoargumentowa może być użyta w składni infix
@@ -93,7 +196,7 @@ x: Int = 10
 val x = 2 + 5
 val y = 2.+(5)
 ```
-+++
+---
 ### Pierwszeństwo operatorów
 ```
 (litery)
@@ -108,7 +211,7 @@ val y = 2.+(5)
 (inne znaki specjalne)
 ```
 
-+++
+---
 ### Metody i funkcje
 ```scala
 def add(a: Int, b: Int): Int = a + b
@@ -120,7 +223,7 @@ val multiply = (a: Int, b: Int) => a * b
 */
 def mul = multiply(_, _)
 ```
-+++
+---
 ### Zapis infix i nawiasy
 ```scala
 "abc".length()
@@ -131,7 +234,7 @@ def mul = multiply(_, _)
 "abc" endsWith("c")
 "abc" endsWith "c"
 ```
-+++
+---
 ### Ćwiczenie
 
 Napisz metodę podnoszącą liczbę do potęgi. 
@@ -151,13 +254,13 @@ Ostatnie wyrażenie w bloku jest jednocześnie wynikiem.
   x * 2
 }
 ```
-+++
-### Wszystko zwraca wartość
+---
+### Każdy blok kodu zwraca wartość
 Czasami to jest Unit, ale to też obiekt :)
 ```scala
 val result = if(age >= 18) "pełnoletni" else "niepełnoletni"
 ```
-+++
+---
 ### Metoda `apply`
 Metoda apply jest 'ukrywana' przez kompilator, ale może być wywołana jawnie.
 Powzwala na bardziej zwięzłe pisanie kodu lub pewnego rodzaju przeciążanie konstruktorów.
@@ -175,7 +278,7 @@ object User {
 val tomek = User("tomek") 
 ```
 
-+++
+---
 ### Aliasy
 ```scala
 type IntList = List[Int]
@@ -184,13 +287,13 @@ type UserId = Long
 
 type Converter = String => UserId
 ```
-+++
+---
 ### Pakiety
 ```scala
 package myapp
 package services
 ```
-+++
+---
 ### Import
 ```scala
 import com.my.app._
@@ -208,7 +311,7 @@ def canDrink(age: Int) =
       true
     }
 ```
-+++
+---
 ### Ćwiczenie
 
 Napisz metodę konwertującą godzinę z formatu 12-godzinnego do 24 godzinnego.
@@ -216,7 +319,7 @@ Napisz metodę konwertującą godzinę z formatu 12-godzinnego do 24 godzinnego.
 ```scala
 def convertHour(hour: Int): Int = ???
 ```
-+++
+---
 ### Ćwiczenie
 
 Napisz metodę liczącą silnię.
@@ -254,7 +357,7 @@ Dzięki temu możemy:
 ```scala
 def addTo5 = add(5)
 ```
-+++
+---
 ### Ćwiczenie
 
 Napisz funkcję, która sprawdza czy ktoś jest starszy niż określony parametr
@@ -265,7 +368,7 @@ def isOlderThan(limit: Int, age: Int): Boolean = ???
 Przekształć tą funkcję tak, aby można było jej uzyć do stworzenia funkcji
 odpowiadającej na pytanie czy ktoś jest pełnoletni.
 
-+++
+---
 ### Domknięcia
 Domknięcia pozwalają na przechwycenie kontekstu wywołania funkcji.
 
@@ -277,7 +380,7 @@ def multiplierBuilder(factor: Int): Int => Int = {
     multiply
 }
 ```
-+++
+---
 ### Ćwiczenie
 Napisz metodę podnoszącą liczbę do potęgi z użyciem domknięć.
 
@@ -301,14 +404,14 @@ Case class to zwykła klasa z dużą ilością cukru składniowego:
 - krotki
 - for comprehension
 
-+++
+---
 ### Krotki
 ```scala
 val user = ("Marek", 25)
 val (_, age) = user
 ```
 
-+++
+---
 ### Ekstraktory
 - Ekstraktory pozwalają na dekompozycję struktury do postaći krotki.
 - Są powszechnie używane przez cukier syntaktyczny Scala
@@ -370,7 +473,7 @@ Można to osiągnąć na wiele sposobów, ale poćwicz pattern matching :)
 ```scala
 def tellTime(hour: Int, minute: Int): String = ???
 ```
-+++
+---
 ### Ćwiczenie
 
 Jakie zmiany zaproponujesz do metody wcześniej żeby obsłużyć niepoprawną wartość czasu?
@@ -394,7 +497,7 @@ class Baz[A]  // An invariant class
 Kolekcje niemutowalne są zalecane, co pomaga uniknąć wielu niespodzianek.
 Niestety W pewnych sytuacjach lepsze okazują się kolekcje mutowalne.
 Przykładem takim może być optymalizacja wydajności.
-+++
+---
 ### Tworzenie kolekcji
 ```scala
 val list = List(1, 2, 3)
@@ -402,7 +505,7 @@ val set = Set("a", "b", "c")
 val map = Map(1 -> "a", 2 -> "b")
 val arr = Array(1, 2, 3)
 ```
-+++
+---
 ### Aktualizowanie kolekcji
 Pojedyncze elementy
 ```scala
@@ -416,7 +519,7 @@ Sumowanie dwóch kolekcji:
 List(1, 2, 3) ++ List(4, 5, 6)
 ```
 
-+++
+---
 ### Operacje na kolekcjach
 - map
 - filter
@@ -429,30 +532,30 @@ List(1, 2, 3) ++ List(4, 5, 6)
 
 ---
 ### Ćwiczenia
-+++
+---
 Znajdź największy element w tablicy.
 
-+++
+---
 Sprawdź czy dany tekst jest palindromem
 
 ```scala
 def isPalindrome(s: String): Boolean
 ```
 
-+++
+---
 Napisz funkcję, która zwróci wspólne dzielniki dla dwóch liczb
 
 ```scala
 def commonDivisors(a: Int, b: Int): Seq[Int] = ???
 ```
 
-+++
+---
 Policz mediane
 
 ```scala
 def mean(input: Seq[Int]): Int = ???
 ```
-+++
+---
 ### For comprehension
 ```scala
 val items = 1 to 4
@@ -462,7 +565,7 @@ for( item <- items) yield {
 ```
 
 
-+++
+---
 ### Leniwe operacje na kolekcjach
 - view
 - stream
@@ -480,7 +583,7 @@ def multiplyAndSum(multiplier: Int, input: List[Int]): Int = ???
 ---
 ### Obsługa błędów
 
-+++
+---
 ### Zacznijmy od unikania wyjątków
 
 **Pomogą nam w tym:**
@@ -491,7 +594,7 @@ def multiplyAndSum(multiplier: Int, input: List[Int]): Int = ???
 **Oraz w ramach biblioteki Cats:**
 - Validated[+E, +A]
 
-+++
+---
 ### Przećwiczmy to
 
 ```scala
@@ -502,14 +605,14 @@ def multiplyAndSum(multiplier: Int, input: List[Int]): Int = ???
 def strToInt(s: String): Try[Int] = ???
 ```
 
-+++
+---
 ```scala
 /**
  * Znajdź pierwszy tekst w tablicy będący liczbą.
  */
 def firstNumber(a: Array[String]): Option[Int] = ???
 ```
-+++
+---
 ```scala
 case class User(name: String, age: Int)
 
@@ -539,7 +642,7 @@ Najlepiej wyjaśnić to na przykładzie :)
 - Już zdążyłeś ich użyć: Option i Try to monady
 - Bardzo pomocną monadą w Scali jest Future
 - For comprehension pomaga w składaniu monad
-+++
+---
 ### Ćwiczenie
 Napiszmy prosty serwis, który przyjmuje 3 argumenty:
 - wiek, email i imię
@@ -566,14 +669,14 @@ def validateName(input: String): Option[String]
     }
 
 ```
-+++
+---
 ### Ćwiczenie
 
 Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
 - przyjmuje prośbę o rezerwację stołu z podaniem nazwiska i godziny
 - odmawia rezerwacji, jeśli na tą godzinę stół jest zajęty
 - wyświetla grafik
-+++
+---
 - Dla uproszczenia grafik trzymany jest w pamięci w wybranej kolekcji.
 ---
 ### Co dalej?
