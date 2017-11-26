@@ -68,12 +68,12 @@ na wejściu nic nie ma (Enter). Drukujemy za pomocą polecenia `println`
 Uruchom aplikację za pomocą SBT
 
 ---
-# Podstawy składni Scala
+## Podstawy składni Scala
 ---
-# Podstawy składni Scala
-## Zmienne i stałe (etykiety)
+## Podstawy składni Scala
+### Zmienne i stałe (etykiety)
 ---
-### val
+#### val
 Słowo kluczowe `val` służy do oznaczania etykiet, czyli inaczej stałych.
 Gdyby nie fakt, że stałe można dziedziczyć ich odpowiednikiem byłyby słowa kluczowe `final static`.
 
@@ -92,7 +92,7 @@ x = x * 2
   ^
 ```
 ---
-### var
+#### var
 
 ```scala
 var x = 5
@@ -102,8 +102,8 @@ x = x * 2
 x: Int = 10
 ```
 ---
-# Podstawy składni Scala
-## Operatory
+## Podstawy składni Scala
+### Operatory
 - Ponieważ funkcje mogą używać dowolnych znaków operatory w Scala są funkcjami
 - Każda funkcja jednoargumentowa może zapisana w składni infix
 ```scala
