@@ -7,7 +7,6 @@ bartosz.jankiewicz@gmail.com
 
 ---
 
-### Poziomy zaawansowania w języku Scala
 ![Levels of knowledge](http://sciabarra.com/static/media/uploads/blog/17a16.png)
 
 Źródło: http://sciabarra.com/blog/scala-levels-of-knowledge/
