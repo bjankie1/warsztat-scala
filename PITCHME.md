@@ -1,9 +1,22 @@
 ---
 ### Wprowadzenie do języka Scala
 
-Bartosz Jankiewicz | Stacja IT
+Bartosz Jankiewicz
 
-http://stacja.it/warsztaty/2017-07-29-scala.html
+bartosz.jankiewicz@gmail.com
+
+---
+
+# Poziomy zaawansowania w języku Scala
+![Levels of knowledge](http://sciabarra.com/static/media/uploads/blog/17a16.png)
+
+Źródło: http://sciabarra.com/blog/scala-levels-of-knowledge/
+
+# Ammonite
+
+```bash
+sudo curl -L -o /usr/local/bin/amm https://git.io/vdNv2 && sudo chmod +x /usr/local/bin/amm && amm
+```
 
 ---
 ### Podstawy SBT
