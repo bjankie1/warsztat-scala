@@ -654,8 +654,21 @@ Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
 - http://www.scalakoans.org
 - https://twitter.github.io/scala_school/
 
-
+---
 #### Do poczytania
 - https://www.manning.com/books/functional-programming-in-scala
 - http://www.scalatest.org/user_guide
 - http://danielwestheide.com/scala/neophytes.html
+
+
+---
+### Praktyka
+
+* https://practice.geeksforgeeks.org/problems/merge-two-sorted-linked-lists/1
+* https://practice.geeksforgeeks.org/problems/find-k-th-character-in-string/0
+* https://practice.geeksforgeeks.org/problems/start-elements/0
+* https://practice.geeksforgeeks.org/problems/common-subsequence/0
+* https://practice.geeksforgeeks.org/problems/positive-and-negative-elements/0
+* https://practice.geeksforgeeks.org/problems/find-the-highest-number/0
+* https://practice.geeksforgeeks.org/problems/prime-factorization-and-geek-number/0
+* https://practice.geeksforgeeks.org/problems/validate-an-ip-address/1
