@@ -656,6 +656,7 @@ Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
 
 ---
 #### Do poczytania
+- https://twitter.github.io/scala_school/
 - https://www.manning.com/books/functional-programming-in-scala
 - http://www.scalatest.org/user_guide
 - http://danielwestheide.com/scala/neophytes.html
