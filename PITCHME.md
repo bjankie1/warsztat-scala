@@ -666,6 +666,7 @@ Napiszmy prosty serwis pozwalający na rezerwowanie stołu do piłkarzyków:
 ### Praktyka
 
 * https://practice.geeksforgeeks.org/problems/merge-two-sorted-linked-lists/1
+* https://practice.geeksforgeeks.org/problems/transform-the-array/0
 * https://practice.geeksforgeeks.org/problems/find-k-th-character-in-string/0
 * https://practice.geeksforgeeks.org/problems/start-elements/0
 * https://practice.geeksforgeeks.org/problems/common-subsequence/0
