@@ -74,6 +74,7 @@ Uruchom aplikację za pomocą SBT
 ### Zmienne i stałe (etykiety)
 ---
 #### val
+
 Słowo kluczowe `val` służy do oznaczania etykiet, czyli inaczej stałych.
 Gdyby nie fakt, że stałe można dziedziczyć ich odpowiednikiem byłyby słowa kluczowe `final static`.
 
@@ -127,6 +128,15 @@ val y = 2.+(5)
 
 ---
 ### Metody i funkcje
+
+* Metody |
+* Funkcje |
+* Partial functions |
+* Częściowo zaaplikowane funkcje |
+* Domknięcia
+
+---
+### Metody
 ```scala
 def add(a: Int, b: Int): Int = a + b
 
@@ -301,7 +311,7 @@ Napisz metodę podnoszącą liczbę do potęgi z użyciem domknięć.
 ---
 ### Case classes
 
-Coś, czego brakuje w Java.
+Coś, czego brakuje w Java.|
 </br>
 Case class to zwykła klasa z dużą ilością cukru składniowego:
 - hashCode na wszystkich polach
