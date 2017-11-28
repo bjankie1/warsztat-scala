@@ -1,22 +1,52 @@
 package warsztat
 
-import scala.io.StdIn
+import java.util.UUID
 
-/**
-  * Prosta apka odpowiadająca jak papuga.
-  *
-  */
+import scala.annotation.tailrec
+import scala.collection.immutable
+import scala.util.{Success, Try}
+
+
+case class Person(id: UUID, name: String, groupId: UUID)
+
+case class Group(id: UUID, name: String, scope: String)
+
+trait MyBehaviour {
+
+  type UserList = List[String]
+
+}
+
+
+trait MyBehaveLike {
+
+  type ItemType
+
+  def loadItems: List[ItemType]
+}
+
+class MyClass extends MyBehaveLike {
+
+  override type ItemType = String
+
+  override def loadItems = ???
+}
+
 object HelloApp extends App {
 
-  @scala.annotation.tailrec
-  def readIn(): Unit = {
-    val in = StdIn.readLine("Powiedz coś: ")
-    if(in.nonEmpty) {
-      println(s"Hello $in")
-      readIn()
+  def loadUser(userId: UUID): Try[Person] = ???
+
+  def loadGroup(groupId: UUID): Try[Group] = ???
+
+  def usersGroupName(): Try[String] = {
+    for {
+      user <- loadUser(UUID.randomUUID())
+      group <- loadGroup(user.groupId)
+    } yield {
+      group.name
     }
   }
 
-  readIn()
+
 
 }
