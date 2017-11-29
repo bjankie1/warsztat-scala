@@ -8,7 +8,7 @@ import scala.io.StdIn
 
 trait WebServer { self: Api =>
 
-  def start: Unit = {
+  def start(): Unit = {
     implicit val system = ActorSystem("my-system")
     implicit val materializer = ActorMaterializer()
 

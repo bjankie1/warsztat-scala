@@ -29,9 +29,9 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
 class GroupRoute(groupService: GroupService) extends JsonSupport {
 
     val routes =
-    path("/groups") {
+    path("groups") {
       get {
-        ???
+        complete("group")
       } ~
       post {
         entity(as[Group]) { group =>
